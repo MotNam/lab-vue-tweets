@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="tweet.user.image"
+    <img :src="image"
       className= "profile"
       alt=" profile"/>
     </div>

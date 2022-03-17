@@ -1,42 +1,26 @@
 <template>
   <div className="tweet">
-    <!-- <img
-      :src="tweet.user.image"
-      className="profile"
-      alt="profile"
-    /> -->
-    <ProfileImage :image="user.image" />
+  
+    <ProfileImage :image="tweet.user.image" />
 
     <div className="body">
       <div className="top">
-      <!-- <span className="user">
-          <span className="name">{{ tweet.user.name }}</span>
-          <span className="handle">@{{ tweet.user.handle }}</span>
-      </span> -->
-      <User :user="user"/>
+    
+      <User :user="tweet.user"/>
 
-        <!-- <span className="timestamp">{{ tweet.timestamp }}</span> -->
-        <Timestamp :time="timestamp" />
+        <Timestamp :timestamp="tweet.timestamp" />
 
       </div>
 
-      <!-- <p className="message">{{ tweet.message }}
-      </p> -->
-       <Message :message="message" />
-
-      <!-- <div className="actions">
-         Font Awesome icons -->
-        <!-- <i class="far fa-comment"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="far fa-heart"></i>
-        <i class="fas fa-share"></i>
-      </div>  -->
+     
+       <Message :message="tweet.message" />
 
       <Actions />
 
     </div>
 
-    <i class="fas fa-ellipsis-h"></i>
+    <i class="fas fa-ellipsis-h"></i> 
+    <!-- <button @click="log">Console log</button> -->
   </div>
 </template>
 
@@ -49,11 +33,17 @@ import Actions from './Actions.vue'
 
 export default {
 name: 'Tweet',
-
+methods: {
+  log() {
+    console.log(this.tweet)
+  }
+},
    props: {
-     tweet: Object,
-   },
-
+     tweet: {
+         type: Object,
+       }
+    },
+   
   components: {
     ProfileImage,
     User,
@@ -61,8 +51,8 @@ name: 'Tweet',
     Message,
     Actions,
   },
-
 };
+
 
 </script>
 
